@@ -198,11 +198,11 @@ You can find the tool [here](https://github.com/raspberrydeveloper/pyducky)
 
 [CircuitPython tutorial on the Raspberry Pi Pico by **DroneBot Workshop**](https://www.youtube.com/watch?v=07vG-_CcDG0)
 
-### Added
+## Added
 
 RESTORE_HOST_KEYBOARD_LOCK_STATE and SAVE_HOST_KEYBOARD_LOCK_STATE commands
 
-### Plan to add
+## Plan to add
 
 WAIT_FOR_SCROLL_CHANGE to read in the changes to num and caps lock until scroll lock is hit
 
