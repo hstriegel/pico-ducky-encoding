@@ -75,8 +75,12 @@ def runScriptLine(line):
 def sendString(line):
     layout.write(line)
 
+
 def parseLine(line):
     global defaultDelay
+    global numLock
+    global capsLock
+    global scrollLock
     if(line[0:3] == "REM"):
         # ignore ducky script comments
         pass
@@ -97,6 +101,23 @@ def parseLine(line):
             led.value = False
         else:
             led.value = True
+    elif(line[0:28] == "SAVE_HOST_KEYBOARD_LOCK_STATE"):
+        numLock = kbd.led_on(Keyboard.LED_NUM_LOCK)
+        capsLock = kbd.led_on(Keyboard.LED_CAPS_LOCK)
+        scrollLock = kbd.led_on(Keyboard.LED_SCROLLLOCK)
+    elif(line[0:31] == "RESTORE_HOST_KEYBOARD_LOCK_STATE"):
+        if (numLock != kbd.led_on(Keyboard.LED_NUM_LOCK)):
+            kbd.press(Keycode.NUM_LOCK)
+            time.sleep(.09)
+            kbd.release(Keycode.NUM_LOCK)
+        if (capsLock != kbd.led_on(Keyboard.LED_CAPS_LOCK)):
+            kbd.press(Keycode.CAPS_LOCK)
+            time.sleep(.09)
+            kbd.release(Keycode.CAPS_LOCK)
+        if (scrollLock != kbd.led_on(Keyboard.LED_SCROLLLOCK)):
+            kbd.press(Keycode.SCROLL_LOCK)
+            time.sleep(.09)
+            kbd.release(Keycode.SCROLL_LOCK)
     else:
         newScriptLine = convertLine(line)
         runScriptLine(newScriptLine)
@@ -262,3 +283,4 @@ async def monitor_buttons(button1):
             button1Down = False
 
         await asyncio.sleep(0)
+
