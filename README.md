@@ -20,7 +20,7 @@
 
 Install and have your USB Rubber Ducky working in less than 5 minutes.
 
-1. Clone the repo to get a local copy of the files. `git clone https://github.com/dbisu/pico-ducky.git`
+1. Clone the repo to get a local copy of the files. `git clone https://github.com/hstriegel/pico-ducky-encoding.git`
 
 2. Download [CircuitPython for the Raspberry Pi Pico](https://circuitpython.org/board/raspberry_pi_pico/). *Updated to 8.0.0  
    Download [CircuitPython for the Raspberry Pi Pico W](https://circuitpython.org/board/raspberry_pi_pico_w/). *Updated to 8.0.0
